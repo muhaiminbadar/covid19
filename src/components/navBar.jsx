@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default class navBar extends React.Component {
     render() {
@@ -10,7 +11,7 @@ export default class navBar extends React.Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                    {this.props.items.map((item, index) =>  <Nav.Link key={index} href={item.link}>{item.name}</Nav.Link>)}
+                    {this.props.items.map((item, index) =>  <Nav.Link key={index} as={Link} to={item.link}>{item.name}</Nav.Link>)}
                     </Nav>
                 </Navbar.Collapse>
                 </Navbar>

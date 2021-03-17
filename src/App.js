@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './components/navBar';
 import Footer from './components/Footer';
@@ -24,17 +24,17 @@ function App() {
 
   return (
     <div id="main">
-    <BrowserRouter>
+    <HashRouter>
       <Header siteName="COVID-19 Tracker" items={itemList}/>
       <Container fluid>        
         <div className='mt-5'>
         <Switch>
-          {itemList.map((e, index) => <Route path={e.link} key={index} component={e.comp} exact/>)}
+          {itemList.map((e, index) => <Route exact path={e.link} key={index} component={e.comp} exact/>)}
           <Route component={Error}/>
         </Switch>
         </div>
       </Container>
-    </BrowserRouter>
+    </HashRouter>
     <div style={{ margin: '100px'}}/>
     <Footer/>
   </div>);
